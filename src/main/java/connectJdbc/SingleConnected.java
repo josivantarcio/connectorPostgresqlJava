@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 
 public class SingleConnected {
 
-	private static String urlDb = "jdbc:postgresql://localhost:5432/db_execTestJdbc"; // conexao ao banco postgresql
+	private static final String DB_JDBC = "dbjdbc";
+	private static String urlDb = "jdbc:postgresql://localhost:5432/" + getDbJdbc(); // conexao ao banco postgresql
 	private static Connection connection = null;
 
 	private static String user = "postgres";
@@ -34,6 +35,10 @@ public class SingleConnected {
 
 	public static Connection getConnection() {
 		return connection;
+	}
+	
+	public static String getDbJdbc() {
+		return DB_JDBC;
 	}
 
 }
